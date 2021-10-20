@@ -21,13 +21,11 @@ jobs:
         with:
           node-version: '12.x'
           
-      - name: npm install
+      - name: npm install and npm run build
         working-directory: ./nav-app
-        run: npm install
-
-      - name: Build Angular
-        working-directory: ./nav-app
-        run: ng build --prod --aot=false --build-optimizer=false
+        run: |
+          npm install
+          npm run build
         
       - name: Upload artifact for deployment job	
         uses: actions/upload-artifact@v2	
